@@ -1,0 +1,6 @@
+<resources>
+    <!-- 手机等窄屏：紧凑尺寸 -->
+    <dimen name="transport_icon">44dp</dimen>
+    <dimen name="play_icon">56dp</dimen>
+    <dimen name="topbar_icon">40dp</dimen>
+</resources>

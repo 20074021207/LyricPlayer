@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">悬浮歌词播放器</string>
+    <string name="overlay_on">桌面歌词 开</string>
+    <string name="overlay_off">桌面歌词 关</string>
+    <string name="folder">文件夹</string>
+    <string name="folder_empty">此文件夹为空</string>
+    <string name="folder_unreadable">无法读取该文件夹（缺少存储权限或系统限制）</string>
+    <string name="play_all">播放本文件夹全部</string>
+    <string name="folder_no_audio">此文件夹没有音频文件</string>
+    <string name="scanning">正在扫描本地音乐…</string>
+    <string name="not_playing">未在播放</string>
+    <string name="tap_to_play">点击上方歌曲开始播放</string>
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="next">下一首</string>
+</resources>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 手机等窄屏布局：底栏紧凑单行（文字左、上一首/播放/下一首/模式 右） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <!-- 顶栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="4dp"
+        android:paddingTop="8dp">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_music_note"
+            android:tint="@color/accent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textColor="@color/textPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnFolder"
+            android:layout_width="@dimen/topbar_icon"
+            android:layout_height="@dimen/topbar_icon"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="打开文件夹"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_folder"
+            android:tint="@color/textSecondary" />
+
+        <Button
+            android:id="@+id/btnOverlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:minWidth="0dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="@string/overlay_on"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- 歌曲列表 -->
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp" />
+
+    <!-- 列表为空时的提示，由 ListView 自动切换显示 -->
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="12dp"
+        android:drawableTint="@color/textSecondary"
+        android:drawableTop="@drawable/ic_music_note"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/scanning"
+        android:textColor="@color/textSecondary"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <!-- 底部正在播放栏（紧凑）：歌名+歌手 左，上一首/播放/下一首/模式 右 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_top"
+        android:elevation="12dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingBottom="4dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp">
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="2dp"
+                                                android:progressDrawable="@drawable/seekbar_progress"
+            android:thumb="@drawable/seekbar_thumb" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/npTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/not_playing"
+                android:textColor="@color/textPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/npSub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/tap_to_play"
+                android:textColor="@color/textSecondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnPrev"
+            android:layout_width="@dimen/transport_icon"
+            android:layout_height="@dimen/transport_icon"
+            android:layout_marginRight="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="上一首"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_previous"
+            android:tint="@color/textPrimary" />
+
+        <ImageButton
+            android:id="@+id/btnPlay"
+            android:layout_width="@dimen/play_icon"
+            android:layout_height="@dimen/play_icon"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="播放/暂停"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_play"
+            android:tint="@color/textPrimary" />
+
+        <ImageButton
+            android:id="@+id/btnNext"
+            android:layout_width="@dimen/transport_icon"
+            android:layout_height="@dimen/transport_icon"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="6dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="下一首"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_next"
+            android:tint="@color/textPrimary" />
+
+        <ImageButton
+            android:id="@+id/btnMode"
+            android:layout_width="@dimen/transport_icon"
+            android:layout_height="@dimen/transport_icon"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="切换播放模式"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_sequence"
+            android:tint="@color/accent" />
+            </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
